@@ -10,12 +10,14 @@ import Loader from "./Loader";
 import { setEstateDataReducer } from "../Redux/estateSlice";
 import {useSelector , useDispatch} from "react-redux"
 import { propertyReducer } from "../Redux/estateSlice";
+import { API } from "../utils";
 
 
 const Cards = () => {
 const dispatch = useDispatch()
 const EstatesData = useSelector((state)=>state.estate.EstateList)
 console.log("EstatesData", EstatesData)
+
   const [Estates, setEstates] = useState();
   const [page, setPage] = useState(1);
   const [count, setCount] = useState();
@@ -29,9 +31,9 @@ console.log("EstatesData", EstatesData)
     try {
       // console.log("page in function :  ", page);
       // setactive(null);
-      console.log("active :", active);
+      // console.log("active :", active);
       const response = await axios.get(
-        `http://localhost:5000/api/new/fetctAllestate?page=${page}&active=${active}`
+        `${API}/api/new/fetctAllestate?page=${page}&active=${active}`
       );
 
       const newEstates = response.data.estate;

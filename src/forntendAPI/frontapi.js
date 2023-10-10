@@ -1,8 +1,9 @@
 import axios from "axios";
+import { API } from "../utils";
 
 export const fetchAllProduct = async (page) => {
   try {
-    const response = await axios.get("http://localhost:5000/api/new/fetctAllestate", {
+    const response = await axios.get(`${API}/api/new/fetctAllestate`, {
       params: { page },
     });
 
